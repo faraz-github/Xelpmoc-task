@@ -16,6 +16,7 @@ const { errorHandler } = require("./middleware/errorMiddleware");
 connectMongoDB();
 
 // Body Data Parsing
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Routes
