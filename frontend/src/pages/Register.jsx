@@ -1,16 +1,20 @@
 import { useState } from "react";
 import axios from "axios";
 
+import { useUser } from "../contexts/userContext";
+
 function Register() {
+
+    const { setUser } = useUser();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const onSubmitHandler = async (event) => {
         event.preventDefault();
-        console.log({ email, password });
         const response = await axios.post("/register", { email, password });
-        console.log(response);
+        localStorage.setItem("user", JSON.stringify(response.data));
+        setUser(JSON.parse(localStorage.getItem("user")));
         setEmail("");
         setPassword("");
     }
