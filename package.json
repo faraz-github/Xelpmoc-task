@@ -1,0 +1,19 @@
+{
+  "name": "xelpmoc-test",
+  "version": "1.0.0",
+  "description": "A short assignment for employment in xelpmoc",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend"
+  },
+  "author": "Faraz Ahmad",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
