@@ -1,13 +1,16 @@
 import { useState } from "react";
+import axios from "axios";
 
 function Register() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const onSubmitHandler = (event) => {
+    const onSubmitHandler = async (event) => {
         event.preventDefault();
         console.log({ email, password });
+        const response = await axios.post("/register", { email, password });
+        console.log(response);
         setEmail("");
         setPassword("");
     }
