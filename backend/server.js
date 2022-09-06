@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 5000;
 // Dependencies - Local
 const connectMongoDB = require("./mongodb/connection");
 const { registerUser, loginUser } = require("./controller/userController");
+const { generateSequence } = require("./controller/fibonacciController");
 const { errorHandler } = require("./middleware/errorMiddleware");
 
 // Database Connection
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 // Routes
 app.post("/register", registerUser);
 app.post("/login", loginUser);
+app.post("/fibonacci", generateSequence);
 
 // Middleware
 app.use(errorHandler);
